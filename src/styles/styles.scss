@@ -1,0 +1,118 @@
+@use 'sass:color'; 
+$primary-color: #4A90E2;
+$secondary-color: #ffffff;    
+$background-color: #f9f9f9;   
+$hover-color: #357ABD;        
+$text-color: #333333;         
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.cabecalho {
+  background-color: $primary-color;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0 15px;
+
+        a {
+          color: $secondary-color;
+          text-decoration: none;
+          font-size: 18px;
+          padding: 8px 12px;
+          border-radius: 4px;
+          transition: background-color 0.3s, color 0.3s;
+
+          &:hover {
+            background-color: color.adjust($primary-color, $lightness: 10%);
+            color: $primary-color;
+          }
+
+          &.active {
+            background-color: $secondary-color;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+
+  .page {
+    background-color: $secondary-color;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      color: $primary-color;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  }
+}
+
+.footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    nav {
+      ul {
+        flex-direction: column;
+
+        li {
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+
+  main {
+    padding: 0 10px;
+  }
+}
